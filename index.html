@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#031b20">
+<title>TRUST FOUNDATION — Sylhet, Bangladesh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Syne:wght@600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-deep:#03181d;
+  --bg-card:rgba(10, 45, 52, 0.45);
+  --teal-primary:#00b4a2;
+  --teal-accent:#1dd1a1;
+  --teal-cyan:#00d2d3;
+  --foam-white:#f0fdfa;
+  --text-muted:#80b3b0;
+  --border-glow:rgba(0, 210, 211, 0.15);
+  --vh:100vh;
+}
+
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html,body{margin:0;padding:0;width:100%;background:var(--bg-deep);color:var(--foam-white);font-family:Outfit,"Hind Siliguri",sans-serif}
+body{min-height:var(--vh);overflow-x:hidden}
+body.bn{font-family:"Hind Siliguri",Outfit,sans-serif}
+h1,h2,h3{font-family:Syne,"Hind Siliguri",sans-serif;margin:0}
+p{margin:0}
+button,a{font:inherit;cursor:pointer}
+button{border:0;background:none;padding:0;color:inherit}
+a{text-decoration:none}
+.hidden{display:none!important}
+
+/* HEADER */
+header{position:fixed;top:0;left:0;right:0;z-index:50;height:60px;background:rgba(3,24,29,0.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border-glow)}
+.nav{max-width:1200px;margin:0 auto;height:100%;padding:0 14px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{display:flex;align-items:center;gap:9px;text-align:left}
+.brand img{height:38px;width:auto;object-fit:contain}
+.brand b{display:block;font-family:Syne,sans-serif;font-size:13px;color:var(--foam-white)}
+.brand b span{color:var(--teal-accent)}
+.brand small{display:block;font-size:10px;color:var(--text-muted)}
+.links{display:none;gap:8px}
+.right{display:flex;align-items:center;gap:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border-radius:12px;padding:9px 16px;font-size:13px;font-weight:700;transition:.2s}
+.btn:active{transform:scale(.97)}
+.primary{color:#03181d;background:linear-gradient(135deg,var(--teal-cyan),var(--teal-accent));box-shadow:0 4px 15px rgba(0,210,211,0.2)}
+.ghost{border:1px solid var(--border-glow);color:var(--foam-white);background:rgba(255,255,255,.03)}
+.langbtn{border:1px solid var(--border-glow);background:rgba(255,255,255,.03);color:var(--foam-white);border-radius:999px;padding:7px 12px;font-size:12px;font-weight:800}
+.helpnow{display:none}
+.tf{display:grid;place-items:center;background:linear-gradient(135deg,var(--teal-cyan),var(--teal-accent));color:#03181d;font-weight:800;border-radius:999px;width:34px;height:34px;font-size:12px;flex:none}
+.tf.big{width:92px;height:92px;border-radius:22px;font-size:28px}
+.grad{color:var(--teal-cyan)}
+
+/* PAGES */
+.page{display:none;width:100%;min-height:var(--vh);padding:84px 14px 84px;position:relative;overflow:hidden}
+.page.active{display:flex;flex-direction:column;align-items:center;animation:pageIn .3s ease both}
+.wrap{width:100%;max-width:1000px;position:relative;z-index:1;margin:auto 0}
+
+/* HOME */
+#page-home.active{justify-content:center;text-align:center;background:radial-gradient(circle at center, #072a31 0%, #03181d 100%)}
+.bg-logo{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;z-index:0}
+.bg-logo img{max-width:80%;max-height:55%;opacity:.04;object-fit:contain}
+.hero{position:relative;z-index:1;max-width:640px;display:flex;flex-direction:column;align-items:center}
+.hero .logo-img{height:120px;width:auto;object-fit:contain;margin-bottom:14px;filter:drop-shadow(0 4px 12px rgba(0,210,211,0.2))}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--teal-cyan);margin-bottom:8px}
+.hero h1{font-size:2.1rem;line-height:1.2;font-weight:800;color:var(--foam-white)}
+.hero .desc{margin-top:12px;font-size:15px;color:var(--text-muted);line-height:1.6}
+.hero .sub{margin-top:12px;font-size:11px;font-weight:700;letter-spacing:.1em;color:#538582;text-transform:uppercase}
+.hero .btn{margin-top:22px;padding:13px 26px;font-size:14px}
+.stats{display:flex;gap:10px;margin-top:22px;width:100%}
+.stat{flex:1;background:var(--bg-card);border:1px solid var(--border-glow);border-radius:14px;padding:14px 4px;font-size:12px;color:var(--text-muted);font-weight:600}
+.stat b{display:block;font-size:16px;margin-bottom:4px;color:var(--foam-white)}
+
+/* PROJECTS & SLIDER */
+#page-projects.active{background:linear-gradient(165deg,#03181d,#072a31 60%,#03181d)}
+.ptitle{font-size:1.8rem;font-weight:800;text-align:center;color:#fff}
+.ptitle span{color:var(--teal-cyan)}
+.psub{font-size:13px;text-align:center;color:var(--text-muted);margin:6px 0 16px}
+
+.slider{position:relative;width:100%;border-radius:16px;overflow:hidden;border:1px solid var(--border-glow);touch-action:pan-y;user-select:none;-webkit-user-select:none;background:#062329}
+.track{display:flex;transition:transform .5s ease}
+.slide{min-width:100%;position:relative;aspect-ratio:16/10;overflow:hidden;display:grid;place-items:center}
+.slide .simg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(3,24,29,0.95),rgba(3,24,29,0.1) 60%,transparent)}
+.cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:16px;text-align:left;color:#fff}
+.cap h3{font-size:1.1rem;color:var(--teal-cyan)}
+.cap p{font-size:12px;color:var(--foam-white);margin-top:4px;line-height:1.4}
+
+.arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:32px;height:32px;border-radius:50%;background:rgba(3,24,29,0.7);border:1px solid var(--border-glow);color:#fff;font-size:18px;display:grid;place-items:center}
+.arrow.l{left:8px}.arrow.r{right:8px}
+.dots{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:6px;z-index:3}
+.dot{width:6px;height:6px;border-radius:99px;background:rgba(255,255,255,.4);transition:.3s}
+.dot.on{width:18px;background:var(--teal-cyan)}
+
+.pgrid{display:grid;gap:12px;grid-template-columns:1fr;margin-top:18px}
+.pcard{border:1px solid var(--border-glow);background:var(--bg-card);border-radius:14px;padding:16px;text-align:left;transition:.2s;color:#fff}
+.pcard:hover{background:rgba(10,45,52,0.8);border-color:rgba(0,210,211,0.4)}
+.pcard .ic{font-size:26px;display:block}
+.pcard h3{font-size:15px;color:var(--teal-cyan);margin-top:6px}
+.pcard small{display:block;margin-top:4px;font-size:11px;color:var(--text-muted)}
+
+/* TEAM & VIP CARDS */
+#page-owners.active{background:linear-gradient(170deg,#03181d,#072a31 60%,#03181d)}
+.founders{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:6px;font-size:11px;font-weight:700;letter-spacing:.3em;color:var(--teal-cyan)}
+.founders::before,.founders::after{content:"";width:20px;height:1px;background:var(--border-glow)}
+.otitle{font-size:1.5rem;font-weight:800;text-align:center;color:#fff}
+.osub{font-size:12px;text-align:center;color:var(--text-muted);margin:4px 0 16px}
+
+.ogrid{display:grid;gap:8px;grid-template-columns:repeat(3,1fr)}
+.ocard{display:block;width:100%;border-radius:10px;background:var(--bg-card);border:1px solid var(--border-glow);padding:6px;text-align:center;transition:transform .2s,background .2s,border-color .2s}
+.ocard:hover{transform:translateY(-2px);background:rgba(10,45,52,0.8);border-color:rgba(0,210,211,0.3)}
+
+.ph{width:100%;aspect-ratio:1/1;max-width:80px;margin:0 auto;border-radius:8px;overflow:hidden;background:#062329;position:relative;border:1px solid var(--border-glow)}
+.circle{width:100%;height:100%;border-radius:0;background:#062329;display:grid;place-items:center;color:#fff;font-size:20px;font-weight:800}
+.circle img{width:100%;height:100%;object-fit:cover;border-radius:6px}
+
+.ocard .role{margin-top:4px;display:inline-block;padding:2px 6px;border-radius:4px;font-size:8px;font-weight:700;letter-spacing:.05em;color:var(--teal-cyan);background:rgba(0,210,211,0.08);border:1px solid rgba(0,210,211,0.15)}
+.ocard h3{font-size:11px;margin-top:4px;color:#fff;line-height:1.2;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ocard .view{display:block;margin-top:3px;font-size:9px;font-weight:600;color:var(--teal-accent)}
+
+.vipbox{margin-top:24px}
+.vipbox .otitle{font-size:1.3rem}
+.mgrid{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(90px,110px));justify-content:center}
+.mcard{background:var(--bg-card);border:1px solid var(--border-glow);border-radius:10px;padding:6px;text-align:center;transition:.2s;display:block;width:100%}
+.mcard:hover{transform:translateY(-2px);background:rgba(10,45,52,0.8)}
+.mcard .art{height:80px;border-radius:8px;background:#062329;display:grid;place-items:center;color:var(--teal-cyan);font-size:20px;font-weight:700;overflow:hidden;border:1px solid var(--border-glow)}
+.mcard .art img{width:100%;height:100%;object-fit:cover}
+.mcard .role{margin-top:4px;font-size:8px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--teal-cyan)}
+.mcard h3{font-size:11px;color:#fff;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mcard .view{display:block;margin-top:2px;font-size:9px;font-weight:600;color:var(--teal-accent)}
+
+/* DONATE */
+#page-donate.active{background:radial-gradient(circle at center, #072a31 0%, #03181d 100%)}
+.dgrid{display:grid;gap:14px;grid-template-columns:1fr;max-width:900px;width:100%;margin:auto 0;position:relative;z-index:1}
+.card{background:var(--bg-card);border:1px solid var(--border-glow);border-radius:16px;padding:18px}
+.label{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--teal-cyan)}
+.card h2{font-size:1.3rem;color:var(--foam-white);margin-top:4px}
+.card .intro{font-size:13px;line-height:1.6;color:var(--text-muted);margin-top:8px}
+.item{display:flex;gap:12px;border-radius:12px;padding:12px;margin-top:10px;border:1px solid var(--border-glow);background:rgba(255,255,255,.02)}
+.item span.e{font-size:26px}
+.item b{font-size:14px;color:var(--foam-white)}
+.item p{font-size:12px;color:var(--text-muted);margin-top:3px;line-height:1.5}
+.card .btn{width:100%;margin-top:14px;padding:14px}
+.safe{font-size:11px;color:#538582;margin-top:8px;line-height:1.5}
+.dark{background:rgba(255,255,255,.02);border:1px solid var(--border-glow);color:#fff;border-radius:16px;padding:18px}
+.dark h3{font-size:1.15rem}
+.dark p.t{font-size:13px;line-height:1.6;color:var(--text-muted);margin-top:8px}
+.step{border:1px solid var(--border-glow);background:rgba(255,255,255,.02);border-radius:12px;padding:12px;margin-top:10px;font-size:13px}
+.step b{color:var(--teal-accent)}
+.step p{color:var(--text-muted);margin-top:4px}
+
+/* FOOTER */
+.site-footer{position:relative;overflow:hidden;color:var(--text-muted);background:#021013;padding:0 20px calc(84px + env(safe-area-inset-bottom));font-family:Outfit,"Hind Siliguri",sans-serif}
+body.bn .site-footer{font-family:"Hind Siliguri",Outfit,sans-serif}
+.site-footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--border-glow)}
+.f-inner{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding-top:46px}
+.f-grid{display:grid;gap:34px;grid-template-columns:1fr}
+.f-word{font-family:Syne,sans-serif;font-weight:800;font-size:1.35rem;letter-spacing:.14em;color:var(--foam-white);line-height:1.1}
+.f-word span{display:block;font-size:.62rem;letter-spacing:.42em;color:var(--teal-cyan);margin-top:7px;font-weight:600}
+.f-desc{margin-top:16px;font-size:14px;line-height:1.75;color:var(--text-muted);max-width:360px}
+.f-tag{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-cyan)}
+.f-tag::before{content:"";width:6px;height:6px;transform:rotate(45deg);background:var(--teal-cyan)}
+.f-h{font-family:Syne,"Hind Siliguri",sans-serif;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--teal-cyan);margin:0 0 16px;display:flex;align-items:center;gap:10px}
+.f-h::after{content:"";flex:1;height:1px;background:var(--border-glow)}
+.f-list{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.f-link{display:inline-flex;align-items:center;gap:10px;padding:7px 0;font-size:14.5px;color:var(--text-muted);background:none;border:0;text-align:left;transition:color .25s,transform .25s}
+.f-link::before{content:"";width:0;height:1px;background:var(--teal-cyan);transition:width .25s}
+.f-link:hover,.f-link:focus-visible{color:var(--teal-cyan);transform:translateX(3px)}
+.f-link:hover::before,.f-link:focus-visible::before{width:14px}
+.f-link:focus-visible,.f-social:focus-visible,.f-contact:focus-visible{outline:2px solid var(--teal-cyan);outline-offset:3px;border-radius:6px}
+.f-contact{display:flex;align-items:center;gap:12px;color:var(--text-muted);font-size:14.5px;word-break:break-word;transition:color .25s}
+.f-contact:hover{color:var(--teal-cyan)}
+.f-ico{width:38px;height:38px;flex:none;border-radius:50%;display:grid;place-items:center;border:1px solid var(--border-glow);background:rgba(255,255,255,.03);color:var(--teal-cyan);transition:.25s}
+.f-ico svg{width:18px;height:18px}
+.f-contact:hover .f-ico,.f-social:hover .f-ico{background:var(--teal-cyan);color:#03181d}
+.f-social{display:inline-flex;align-items:center;gap:12px;color:var(--text-muted);font-size:14.5px;transition:color .25s;word-break:break-all}
+.f-social:hover{color:var(--teal-cyan)}
+.f-stack{display:grid;gap:30px}
+.f-sep{display:flex;align-items:center;gap:14px;margin:40px 0 20px}
+.f-sep i{flex:1;height:1px;background:var(--border-glow)}
+.f-sep b{width:8px;height:8px;transform:rotate(45deg);border:1px solid rgba(0,210,211,0.3)}
+.f-copy{text-align:center;font-size:12.5px;letter-spacing:.04em;color:#538582;padding-bottom:6px}
+
+/* MODALS */
+.overlay{position:fixed;inset:0;background:rgba(3,24,29,0.85);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);z-index:100;display:none;align-items:center;justify-content:center;opacity:0;padding:16px;transition:opacity .2s}
+.overlay.open{opacity:1}
+.mbox{background:#072a31;color:var(--foam-white);border:1px solid var(--border-glow);border-radius:20px;padding:22px;width:100%;max-width:340px;max-height:88%;overflow:auto;text-align:center;position:relative;box-shadow:0 20px 50px rgba(0,0,0,.5);transform:scale(.95);transition:transform .2s}
+.overlay.open .mbox{transform:scale(1)}
+.mbox.gold{background:#072a31;border-top:3px solid var(--teal-cyan)}
+.xbtn{position:absolute;top:8px;right:14px;font-size:20px;font-weight:700;color:var(--text-muted);z-index:2}
+.bigph{width:150px;height:150px;margin:10px auto 14px;border-radius:14px;overflow:hidden;border:1px solid var(--border-glow)}
+.bigph .circle{font-size:54px;border-radius:0}
+.mbox .role{display:inline-block;padding:4px 14px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--teal-cyan);background:rgba(0,210,211,.1);border:1px solid rgba(0,210,211,.2)}
+.mbox h3{font-size:1.3rem;margin-top:10px}
+.mbox .btn{width:100%;margin-top:16px}
+.mbox .none{font-size:12px;color:var(--text-muted);margin-top:12px}
+.pm{text-align:left}
+.pm .big{height:130px;display:grid;place-items:center;font-size:60px;background:rgba(255,255,255,.03);border-radius:14px;margin-bottom:12px}
+.pm p{font-size:13px;line-height:1.6;color:var(--text-muted);margin-top:8px}
+
+/* MOBILE BAR */
+.mobilebar{position:fixed;z-index:45;bottom:0;left:0;right:0;background:rgba(3,24,29,0.95);border-top:1px solid var(--border-glow);display:flex;padding-bottom:env(safe-area-inset-bottom)}
+.mobilebar button{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;padding:8px 2px;color:var(--text-muted)}
+.mobilebar button span:first-child{font-size:18px}
+.mobilebar button.active{color:var(--teal-cyan);font-weight:700}
+
+@keyframes pageIn{from{opacity:0}to{opacity:1}}
+
+@media(min-width:768px){
+ html:not(.mob) .links{display:flex}
+ html:not(.mob) .helpnow{display:inline-flex}
+ html:not(.mob) .mobilebar{display:none}
+ html:not(.mob) .page{padding:92px 24px 40px}
+ html:not(.mob) .ogrid{grid-template-columns:repeat(6,1fr);gap:10px}
+ html:not(.mob) .otitle{font-size:2.3rem}
+ html:not(.mob) .dgrid{grid-template-columns:1fr 1fr}
+ html:not(.mob) .pgrid{grid-template-columns:repeat(3,1fr)}
+ html:not(.mob) .hero h1{font-size:3.3rem}
+ html:not(.mob) .hero .logo-img{height:140px}
+ html:not(.mob) .slide{aspect-ratio:21/9}
+ html:not(.mob) .cap{padding:24px 28px 40px}
+ html:not(.mob) .cap h3{font-size:1.5rem}
+ html:not(.mob) .cap p{font-size:14px}
+ html:not(.mob) .ptitle{font-size:2.3rem}
+ html:not(.mob) .site-footer{padding-bottom:28px}
+ html:not(.mob) .f-grid{grid-template-columns:1.5fr 1fr 1fr 1.3fr;gap:44px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="nav">
+  <button class="brand" onclick="switchPage('home')" aria-label="Home">
+   <img class="logo-img" alt="Trust Foundation logo">
+   <span><b>TRUST <span>FOUNDATION</span></b><small>Sylhet, Bangladesh</small></span>
+  </button>
+  <div class="links">
+   <button class="nav-link btn primary" data-page="home" onclick="switchPage('home')" data-i="home">Home</button>
+   <button class="nav-link btn ghost" data-page="projects" onclick="switchPage('projects')" data-i="projects">Our Projects</button>
+   <button class="nav-link btn ghost" data-page="owners" onclick="switchPage('owners')" data-i="owners">Team</button>
+   <button class="nav-link btn ghost" data-page="donate" onclick="switchPage('donate')" data-i="donate">Help / Donate</button>
+  </div>
+  <div class="right">
+   <button id="langToggle" class="langbtn" type="button">বাংলা</button>
+   <button class="btn primary helpnow" onclick="switchPage('donate')" data-i="donateBtn">Help Now ↗</button>
+  </div>
+ </div>
+</header>
+
+<main>
+ <!-- HOME -->
+ <section id="page-home" class="page active">
+  <div class="bg-logo"><img class="bg-img" alt=""></div>
+  <div class="hero">
+   <img class="logo-img" data-size="big" alt="Trust Foundation Logo">
+   <p class="kicker">TRUST FOUNDATION</p>
+   <h1><span data-i="heroTitle">A little help can</span> <span class="grad" data-i="heroAccent">change a life.</span></h1>
+   <p class="desc" data-i="heroDesc">Together, we can support people with clothing, food and financial help when they need it most.</p>
+   <p class="sub" data-i="heroSubtext">Sylhet, Bangladesh · Humanity first</p>
+   <button class="btn primary" onclick="switchPage('donate')" data-i="heroButton">How to Help ↗</button>
+   <div class="stats">
+    <div class="stat"><b data-i="stat1Num">100%</b><span data-i="stat1">Clothing</span></div>
+    <div class="stat"><b data-i="stat2Num">Support</b><span data-i="stat2">Food</span></div>
+    <div class="stat"><b data-i="stat3Num">Direct</b><span data-i="stat3">Community</span></div>
+   </div>
+  </div>
+ </section>
+
+ <!-- PROJECTS -->
+ <section id="page-projects" class="page">
+  <div class="wrap">
+   <h2 class="ptitle"><span style="color:#fff" data-i="projects">Our Projects</span><span>.</span></h2>
+   <p class="psub" data-i="projectsIntro">Our support activities focus on practical help for people and families.</p>
+
+   <div class="slider" id="slider">
+    <div class="track" id="track"></div>
+    <button class="arrow l" id="prev" aria-label="Previous">‹</button>
+    <button class="arrow r" id="next" aria-label="Next">›</button>
+    <div class="dots" id="dots"></div>
+   </div>
+
+   <div id="projectGrid" class="pgrid"></div>
+  </div>
+ </section>
+
+ <!-- OWNERS -->
+ <section id="page-owners" class="page">
+  <div class="wrap">
+   <p class="founders" data-i="founders">FOUNDERS</p>
+   <h2 class="otitle" data-i="ownersTitle">Our Owners</h2>
+   <p class="osub" data-i="teamIntro">Meet the people behind the foundation.</p>
+   <div id="ownerGrid" class="ogrid"></div>
+   <div id="vipBox" class="vipbox">
+    <h2 class="otitle" data-i="vipTitle">VIP Members</h2>
+    <p class="osub" data-i="vipIntro">Special members who stand with us and support our mission.</p>
+    <div id="vipGrid" class="mgrid"></div>
+   </div>
+  </div>
+ </section>
+
+ <!-- DONATE -->
+ <section id="page-donate" class="page">
+  <div class="dgrid">
+   <div class="card">
+    <p class="label" data-i="helpLabel">Give with kindness</p>
+    <h2 data-i="donationTitle">How You Can Help</h2>
+    <p class="intro" data-i="donationIntro">Online payment is not available yet. Please message our Instagram page first so our team can coordinate your contribution.</p>
+    <div class="item"><span class="e">👕</span><div><b data-i="clothesTitle">Clothes & clothing</b><p data-i="clothesDesc">New or gently used clean clothes, including children's clothing.</p></div></div>
+    <div class="item"><span class="e">🍚</span><div><b data-i="foodTitle">Food & essentials</b><p data-i="foodDesc">Packaged food and everyday essentials for people in need.</p></div></div>
+    <div class="item"><span class="e">🤝</span><div><b data-i="moneyTitle">Financial support</b><p data-i="moneyDesc">If you wish to contribute money, message us first for verified instructions.</p></div></div>
+    <a class="btn primary" href="https://www.instagram.com/_trust.foundation_?vrfl=MXdnODY3YmQ5YnZ6aA==" target="_blank" rel="noopener noreferrer" data-i="messageInstagram">Message us on Instagram ↗</a>
+    <p class="safe" data-i="donationSafety">Please do not send money to any number until our team confirms the official process directly with you.</p>
+   </div>
+   <div class="dark">
+    <h3 data-i="contactTitle">Before You Donate</h3>
+    <p class="t" data-i="contactDesc">Send us a message with your name, what you would like to donate, and your general area in Sylhet. Our team will reply to coordinate the next steps.</p>
+    <div class="step"><b data-i="step1Title">1. Message</b><p data-i="step1Desc">Contact us on Instagram before arranging a donation.</p></div>
+    <div class="step"><b data-i="step2Title">2. Coordinate</b><p data-i="step2Desc">Agree on the type of help and a safe handover method.</p></div>
+    <div class="step"><b data-i="step3Title">3. Help someone</b><p data-i="step3Desc">Your contribution can make a meaningful difference.</p></div>
+   </div>
+  </div>
+ </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+ <div class="f-inner">
+  <div class="f-grid">
+
+   <section aria-labelledby="f-brand">
+    <div class="f-word" id="f-brand">TRUST<span>FOUNDATION</span></div>
+    <p class="f-desc" data-i="fDesc">An independent community organization in Sylhet, Bangladesh, built on care, honesty and people standing beside people.</p>
+    <p class="f-tag"><span data-i="fTag">Humanity first</span></p>
+   </section>
+
+   <nav aria-labelledby="f-explore">
+    <h2 class="f-h" id="f-explore" data-i="fExplore">Explore</h2>
+    <ul class="f-list">
+     <li><button class="f-link" onclick="switchPage('home')" data-i="fAbout">About Us</button></li>
+     <li><button class="f-link" onclick="switchPage('projects')" data-i="fProjects">Our Projects</button></li>
+     <li><button class="f-link" onclick="switchPage('owners')" data-i="fTeam">Owners &amp; VIP Members</button></li>
+     <li><a class="f-link" href="https://www.instagram.com/_trust.foundation_?vrfl=MXdnODY3YmQ5YnZ6aA==" target="_blank" rel="noopener noreferrer" data-i="fJoin">Join Us</a></li>
+    </ul>
+   </nav>
+
+   <nav aria-labelledby="f-involved">
+    <h2 class="f-h" id="f-involved" data-i="fInvolved">Get Involved</h2>
+    <ul class="f-list">
+     <li><a class="f-link" href="https://www.instagram.com/_trust.foundation_?vrfl=MXdnODY3YmQ5YnZ6aA==" target="_blank" rel="noopener noreferrer" data-i="fMember">Become a Member</a></li>
+     <li><a class="f-link" href="https://www.instagram.com/_trust.foundation_?vrfl=MXdnODY3YmQ5YnZ6aA==" target="_blank" rel="noopener noreferrer" data-i="fVolunteer">Volunteer With Us</a></li>
+     <li><button class="f-link" onclick="switchPage('projects')" data-i="fActivities">Our Activities</button></li>
+    </ul>
+   </nav>
+
+   <div class="f-stack">
+    <section aria-labelledby="f-contact">
+     <h2 class="f-h" id="f-contact" data-i="fContact">Contact Us</h2>
+     <a class="f-contact" href="mailto:trustfoundation.syl@gmail.com">
+      <span class="f-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg></span>
+      <span>trustfoundation.syl@gmail.com</span>
+     </a>
+    </section>
+    <section aria-labelledby="f-follow">
+     <h2 class="f-h" id="f-follow" data-i="fFollow">Follow Us</h2>
+     <a class="f-social" href="https://www.instagram.com/_trust.foundation_?vrfl=MXdnODY3YmQ5YnZ6aA==" target="_blank" rel="noopener noreferrer" aria-label="TRUST FOUNDATION on Instagram">
+      <span class="f-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg></span>
+      <span>@_trust.foundation_</span>
+     </a>
+    </section>
+   </div>
+
+  </div>
+
+  <div class="f-sep" aria-hidden="true"><i></i><b></b><i></i></div>
+  <p class="f-copy" data-i="fCopy">© 2026 TRUST FOUNDATION. All rights reserved.</p>
+ </div>
+</footer>
+
+<div id="personModal" class="overlay" onclick="closePerson()">
+ <div class="mbox gold" onclick="event.stopPropagation()">
+  <button class="xbtn" onclick="closePerson()" aria-label="Close">✕</button>
+  <div class="bigph"><div id="modalArt" class="circle"></div></div>
+  <p id="modalRole" class="role"></p>
+  <h3 id="modalName"></h3>
+  <a id="modalInsta" class="btn primary" href="#" target="_blank" rel="noopener noreferrer"></a>
+  <p id="modalNoInsta" class="none hidden"></p>
+ </div>
+</div>
+
+<div id="projectModal" class="overlay" onclick="closeProjectModal()">
+ <div class="mbox pm" onclick="event.stopPropagation()">
+  <button class="xbtn" onclick="closeProjectModal()" aria-label="Close">✕</button>
+  <div id="projectModalImg" class="big"></div>
+  <h3 id="projectModalTitle"></h3>
+  <p id="projectModalDesc"></p>
+ </div>
+</div>
+
+<nav class="mobilebar" aria-label="Mobile navigation">
+ <button class="m-btn active" data-page="home" onclick="switchPage('home')"><span>⌂</span><span data-i="home">Home</span></button>
+ <button class="m-btn" data-page="projects" onclick="switchPage('projects')"><span>▤</span><span data-i="projectsShort">Projects</span></button>
+ <button class="m-btn" data-page="owners" onclick="switchPage('owners')"><span>♙</span><span data-i="teamShort">Team</span></button>
+ <button class="m-btn" data-page="donate" onclick="switchPage('donate')"><span>♡</span><span data-i="helpShort">Help</span></button>
+</nav>
+
+<script>
+function fit(){
+ const de=document.documentElement;
+ de.style.zoom=1;
+ const sw=screen.width, iw=window.innerWidth;
+ const touch=('ontouchstart' in window)||navigator.maxTouchPoints>0;
+ const phone=touch && Math.min(screen.width,screen.height)<=820;
+ de.classList.toggle("mob",phone);
+ let z=1;
+ if(phone && iw>sw*1.12) z=iw/sw;
+ de.style.zoom=z;
+ de.style.setProperty("--vh",(window.innerHeight/z)+"px");
+}
+window.addEventListener("resize",fit);
+window.addEventListener("orientationchange",()=>setTimeout(fit,250));
+fit();
+
+
+/* =========================================================================
+   📌 MARKED SECTION: EIKHANE CHOBI O LOGO ADD KORBEN
+   ========================================================================= */
+
+const LOGO = "https://i.supaimg.com/a4c4fea6-9c5e-4b0e-ab2b-05ec1ae0ed25/59d939ef-e2d5-411c-907e-15261a994c98.jpg";
+
+const slides = [
+ {
+   image: "https://i.supaimg.com/a4c4fea6-9c5e-4b0e-ab2b-05ec1ae0ed25/b28da020-9329-4b9d-89ca-f4f7c7e9529e.jpg",
+   titleEn: "Food Distribution Drive", 
+   titleBn: "খাদ্য সহায়তা কার্যক্রম", 
+   descEn: "Providing essential food packages to local families in Sylhet.", 
+   descBn: "সিলেটের স্থানীয় পরিবারগুলোর কাছে খাদ্যসামগ্রী পৌঁছে দেওয়া হচ্ছে।"
+ },
+ {
+   image: "https://i.supaimg.com/a4c4fea6-9c5e-4b0e-ab2b-05ec1ae0ed25/d163288c-0210-4b55-aee1-98fca27ef22c.jpg",
+   titleEn: "Clothing Support", 
+   titleBn: "বস্ত্র সহায়তা", 
+   descEn: "Distributing clean, wearable clothes to people in need.", 
+   descBn: "প্রয়োজনীয় মানুষের মাঝে পরিষ্কার পোশাক বিতরণ।"
+ },
+ {
+   image: "https://i.supaimg.com/a4c4fea6-9c5e-4b0e-ab2b-05ec1ae0ed25/5b6cd74f-1dfa-4a84-bf19-b37c5266c347.jpg",
+   titleEn: "Community Assistance", 
+   titleBn: "মানবিক সহায়তা", 
+   descEn: "Standing together with needy people in emergency situations.", 
+   descBn: "জরুরি মুহূর্তে মানুষের পাশে দাঁড়িয়ে একসাথে কাজ করা।"
+ }
+];
+
+const owners = [
+ {id:1, name:"Tafsir Uddin Talha", roleEn:"OWNER", roleBn:"প্রতিষ্ঠাতা", instagram:"https://www.instagram.com/_tafsir_0.0/", image:"https://i.supaimg.com/a4c4fea6-9c5e-4b0e-ab2b-05ec1ae0ed25/56883b95-43a5-43e5-8249-54cc40e1bb6a.jpg"},
+ {id:2, name:"Sahoriya Hasan Sane", roleEn:"OWNER", roleBn:"প্রতিষ্ঠাতা", instagram:"https://www.instagram.com/_bloody_sanee_28_/", image:"https://i.supaimg.com/a4c4fea6-9c5e-4b0e-ab2b-05ec1ae0ed25/82069999-5830-4eeb-bf19-ad220a4a464a.jpg"},
+ {id:3, name:"Ratul Ahmed", roleEn:"OWNER", roleBn:"প্রতিষ্ঠাতা", instagram:"https://www.instagram.com/__ratulllll/", image:"https://i.supaimg.com/a4c4fea6-9c5e-4b0e-ab2b-05ec1ae0ed25/8c5af340-b379-4c37-942b-23ce640da3b7.jpg"},
+ {id:4, name:"Khalid Sayfullah", roleEn:"OWNER", roleBn:"প্রতিষ্ঠাতা", instagram:"https://www.instagram.com/shafin2528/", image:"https://i.supaimg.com/a4c4fea6-9c5e-4b0e-ab2b-05ec1ae0ed25/113cf0c9-09e3-4e6e-b909-c24189ed6936.jpg"},
+ {id:5, name:"Tahmid", roleEn:"OWNER", roleBn:"প্রতিষ্ঠাতা", instagram:"https://www.instagram.com/tahmed_00/", image:"https://i.supaimg.com/a4c4fea6-9c5e-4b0e-ab2b-05ec1ae0ed25/084815f4-a6ea-4918-851a-250a670aea3f.jpg"},
+ {id:6, name:"Adnan Sami", roleEn:"OWNER", roleBn:"প্রতিষ্ঠাতা", instagram:"", image:"https://i.supaimg.com/a4c4fea6-9c5e-4b0e-ab2b-05ec1ae0ed25/b47a5fc7-c76a-4d88-8872-a8d08a1f5c2b.jpg"}
+];
+
+const vips = [
+ {id:1, name:"Tanvir Ahmed", roleEn:"VIP MEMBER", roleBn:"ভিআইপি সদস্য", instagram:"https://www.instagram.com/tanvir__5?cplk=MWtkNXByYXBlbDNpbg==", image:"https://i.supaimg.com/a4c4fea6-9c5e-4b0e-ab2b-05ec1ae0ed25/4625c042-feb1-4f99-bcdc-c1cedd850529.jpg"},
+ {id:2, name:"Md.Sayeed Hasan Chowdhury", roleEn:"VIP MEMBER", roleBn:"ভিআইপি সদস্য", instagram:"https://www.instagram.com/_sayeed_hasan_chowdhury_?mdxt=MWlqaGs4NXhqdXFrbg==", image:"https://i.supaimg.com/a4c4fea6-9c5e-4b0e-ab2b-05ec1ae0ed25/d19c7192-f1ba-451c-b1f5-0a408530a2fb.jpg"}
+];
+
+/* ========================================================================= */
+
+
+const projects = [
+ {id:1,icon:"👕",titleEn:"Clothing Support",titleBn:"বস্ত্র সহায়তা",descEn:"Collecting clean, wearable clothing and coordinating distribution to people who need it.",descBn:"পরিষ্কার ও ব্যবহারযোগ্য পোশাক সংগ্রহ করে প্রয়োজনীয় মানুষের কাছে পৌঁছে দেওয়ার উদ্যোগ।"},
+ {id:2,icon:"🍚",titleEn:"Food Support",titleBn:"খাদ্য সহায়তা",descEn:"Helping people and families access food and everyday essentials.",descBn:"মানুষ ও পরিবারকে খাবার এবং নিত্যপ্রয়োজনীয় জিনিস দিয়ে সহায়তা করা।"},
+ {id:3,icon:"🤝",titleEn:"Community Assistance",titleBn:"মানবিক সহায়তা",descEn:"Coordinating voluntary contributions and practical support with the community.",descBn:"কমিউনিটির সঙ্গে সমন্বয় করে স্বেচ্ছাসেবী অনুদান ও প্রয়োজনীয় সহায়তা পৌঁছে দেওয়া।"}
+];
+
+const translations = {
+ en:{
+  home:"Home",projects:"Our Projects",projectsShort:"Projects",owners:"Team",teamShort:"Team",donate:"Help / Donate",helpShort:"Help",
+  donateBtn:"Help Now ↗",heroTitle:"A little help can",heroAccent:"change a life.",heroDesc:"Together, we can support people with clothing, food and financial help when they need it most.",heroSubtext:"Sylhet, Bangladesh · Humanity first",heroButton:"How to Help ↗",
+  stat1:"Clothing",stat2:"Food",stat3:"Community",
+  stat1Num:"100%",stat2Num:"Support",stat3Num:"Direct",
+  projectsIntro:"Our support activities focus on practical help for people and families.",founders:"FOUNDERS",ownersTitle:"Our Owners",teamIntro:"Meet the people behind the foundation.",
+  vipTitle:"VIP Members",vipIntro:"Special members who stand with us and support our mission.",
+  helpLabel:"Give with kindness",donationTitle:"How You Can Help",donationIntro:"Online payment is not available yet. Please message our Instagram page first so our team can coordinate your contribution.",
+  clothesTitle:"Clothes & clothing",clothesDesc:"New or gently used clean clothes, including children's clothing.",foodTitle:"Food & essentials",foodDesc:"Packaged food and everyday essentials for people in need.",
+  moneyTitle:"Financial support",moneyDesc:"If you wish to contribute money, message us first for verified instructions.",messageInstagram:"Message us on Instagram ↗",
+  donationSafety:"Please do not send money to any number until our team confirms the official process directly with you.",
+  contactTitle:"Before You Donate",contactDesc:"Send us a message with your name, what you would like to donate, and your general area in Sylhet. Our team will reply to coordinate the next steps.",
+  step1Title:"1. Message",step1Desc:"Contact us on Instagram before arranging a donation.",step2Title:"2. Coordinate",step2Desc:"Agree on the type of help and a safe handover method.",step3Title:"3. Help someone",step3Desc:"Your contribution can make a meaningful difference.",
+  instagramProfile:"Instagram Profile ↗",noInstagram:"Instagram profile has not been provided yet.",view:"View profile ↗",tap:"Tap to learn more ↗",
+  fDesc:"An independent community organization in Sylhet, Bangladesh, built on care, honesty and people standing beside people.",fTag:"Humanity first",
+  fExplore:"Explore",fAbout:"About Us",fProjects:"Our Projects",fTeam:"Owners & VIP Members",fJoin:"Join Us",
+  fInvolved:"Get Involved",fMember:"Become a Member",fVolunteer:"Volunteer With Us",fActivities:"Our Activities",
+  fContact:"Contact Us",fFollow:"Follow Us",fCopy:"© 2026 TRUST FOUNDATION. All rights reserved."
+ },
+ bn:{
+  home:"হোম",projects:"আমাদের কার্যক্রম",projectsShort:"কার্যক্রম",owners:"টিম",teamShort:"টিম",donate:"সহায়তা / অনুদান",helpShort:"সহায়তা",
+  donateBtn:"সহায়তা করুন ↗",heroTitle:"সামান্য সহায়তাও",heroAccent:"জীবন বদলাতে পারে।",heroDesc:"পোশাক, খাবার ও আর্থিক সহায়তার মাধ্যমে প্রয়োজনে মানুষের পাশে দাঁড়াই।",heroSubtext:"সিলেট, বাংলাদেশ · সবার আগে মানবতা",heroButton:"কীভাবে সাহায্য করবেন ↗",
+  stat1:"পোশাক",stat2:"খাবার",stat3:"কমিউনিটি",
+  stat1Num:"১০০%",stat2Num:"সহায়তা",stat3Num:"সরাসরি",
+  projectsIntro:"মানুষ ও পরিবারকে বাস্তব সহায়তা দেওয়াই আমাদের কার্যক্রমের লক্ষ্য।",founders:"প্রতিষ্ঠাতাগণ",ownersTitle:"আমাদের প্রতিষ্ঠাতা",teamIntro:"ফাউন্ডেশনের পেছনের মানুষগুলোর সঙ্গে পরিচিত হোন।",
+  vipTitle:"ভিআইপি সদস্য",vipIntro:"যারা বিশেষভাবে আমাদের পাশে আছেন ও আমাদের লক্ষ্যে সহায়তা করছেন।",
+  helpLabel:"মানবতার পাশে দাঁড়ান",donationTitle:"আপনি যেভাবে সাহায্য করতে পারেন",donationIntro:"এখনো অনলাইন পেমেন্ট চালু হয়নি। অনুদান সমন্বয়ের জন্য আগে আমাদের ইনস্টাগ্রাম পেজে মেসেজ দিন।",
+  clothesTitle:"পোশাক ও বস্ত্র",clothesDesc:"নতুন অথবা পরিষ্কার, ব্যবহারযোগ্য পোশাক—শিশুদের পোশাকসহসহ।",foodTitle:"খাবার ও নিত্যপ্রয়োজনীয় সামগ্রী",foodDesc:"প্রয়োজনীয় মানুষের জন্য প্যাকেটজাত খাবার ও দৈনন্দিন ব্যবহার্য সামগ্রী।",
+  moneyTitle:"আর্থিক সহায়তা",moneyDesc:"অর্থ দিয়ে সহায়তা করতে চাইলে সঠিক নির্দেশনার জন্য আগে আমাদের মেসেজ দিন।",messageInstagram:"ইনস্টাগ্রামে মেসেজ দিন ↗",
+  donationSafety:"আমাদের টিম সরাসরি নিশ্চিত না করা পর্যন্ত কোনো নম্বরে টাকা পাঠাবেন না।",
+  contactTitle:"অনুদান দেওয়ার আগে",contactDesc:"আপনার নাম, কী দিতে চান এবং সিলেটের কোন এলাকায় আছেন—এসব জানিয়ে মেসেজ দিন। পরবর্তী ব্যবস্থা নিতে আমাদের টিম আপনার সঙ্গে যোগাযোগ করবে।",
+  step1Title:"১. মেসেজ দিন",step1Desc:"অনুদানের ব্যবস্থা করার আগে ইনস্টাগ্রামে যোগাযোগ করুন।",step2Title:"২. সমন্বয় করুন",step2Desc:"সহায়তার ধরন ও নিরাপদে হস্তান্তরের পদ্ধতি ঠিক করুন।",step3Title:"৩. মানুষের পাশে দাঁড়ান",step3Desc:"আপনার সহায়তা কারও জীবনে অর্থবহ পরিবর্তন আনতে পারে।",
+  instagramProfile:"ইনস্টাগ্রাম প্রোফাইল ↗",noInstagram:"এই সদস্যের ইনস্টাগ্রাম লিংক এখনো দেওয়া হয়নি।",view:"প্রোফাইল দেখুন ↗",tap:"বিস্তারিত জানতে চাপ দিন ↗",
+  fDesc:"সিলেট, বাংলাদেশভিত্তিক একটি স্বাধীন কমিউনিটি সংগঠন, যা যত্ন, সততা এবং মানুষের পাশে মানুষের দাঁড়ানোর বিশ্বাসে গড়া।",fTag:"সবার আগে মানবতা",
+  fExplore:"এক্সপ্লোর",fAbout:"আমাদের সম্পর্কে",fProjects:"আমাদের কার্যক্রম",fTeam:"প্রতিষ্ঠাতা ও ভিআইপি সদস্য",fJoin:"আমাদের সঙ্গে যুক্ত হোন",
+  fInvolved:"যুক্ত হোন",fMember:"সদস্য হোন",fVolunteer:"স্বেচ্ছাসেবী হোন",fActivities:"আমাদের কার্যক্রম",
+  fContact:"যোগাযোগ",fFollow:"অনুসরণ করুন",fCopy:"© ২০২৬ TRUST FOUNDATION. সর্বস্বত্ব সংরক্ষিত।"
+ }
+};
+
+let language="en";
+const $=s=>document.querySelector(s);
+const t=k=>translations[language][k];
+function esc(v){return String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+
+document.addEventListener("error",e=>{
+ const el=e.target; if(!el||el.tagName!=="IMG")return;
+ if(el.classList.contains("logo-img")){const s=document.createElement("span");s.className="tf "+(el.dataset.size||"");s.textContent="TF";el.replaceWith(s)}
+ else if(el.classList.contains("bg-img")||el.classList.contains("simg")){el.style.display="none"}
+ else if(el.dataset.letter){el.parentNode.textContent=el.dataset.letter}
+},true);
+document.querySelectorAll(".logo-img,.bg-img").forEach(i=>i.src=LOGO);
+
+function switchPage(id){
+ const target=document.getElementById("page-"+id); if(!target)return;
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+ target.classList.add("active");
+ document.querySelectorAll(".nav-link").forEach(b=>{const a=b.dataset.page===id;b.classList.toggle("primary",a);b.classList.toggle("ghost",!a)});
+ document.querySelectorAll(".m-btn").forEach(b=>b.classList.toggle("active",b.dataset.page===id));
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+function showOverlay(el){el.style.display="flex";requestAnimationFrame(()=>el.classList.add("open"))}
+function hideOverlay(el){el.classList.remove("open");setTimeout(()=>{el.style.display="none"},220)}
+
+function openPerson(type,id){
+ const m=(type==="vip"?vips:owners).find(o=>o.id===id); if(!m)return;
+ const art=$("#modalArt"); art.innerHTML="";
+ const img=document.createElement("img"); img.dataset.letter=m.name.charAt(0); img.alt=m.name; img.src=m.image; art.appendChild(img);
+ $("#modalRole").textContent=language==="en"?m.roleEn:m.roleBn;
+ $("#modalName").textContent=m.name;
+ const insta=$("#modalInsta"),no=$("#modalNoInsta");
+ if(m.instagram){insta.href=m.instagram;insta.textContent=t("instagramProfile");insta.classList.remove("hidden");no.classList.add("hidden")}
+ else{insta.classList.add("hidden");no.textContent=t("noInstagram");no.classList.remove("hidden")}
+ showOverlay($("#personModal"));
+}
+function closePerson(){hideOverlay($("#personModal"))}
+function openProjectModal(id){
+ const p=projects.find(x=>x.id===id); if(!p)return;
+ $("#projectModalTitle").textContent=language==="en"?p.titleEn:p.titleBn;
+ $("#projectModalDesc").textContent=language==="en"?p.descEn:p.descBn;
+ $("#projectModalImg").textContent=p.icon;
+ showOverlay($("#projectModal"));
+}
+function closeProjectModal(){hideOverlay($("#projectModal"))}
+
+/* slider logic */
+let cur=0,timer=null;
+function renderSlides(){
+ $("#track").innerHTML=slides.map(s=>`
+  <div class="slide">
+   <img class="simg" src="${esc(s.image)}" alt="" draggable="false">
+   <div class="cap"><h3>${esc(language==="en"?s.titleEn:s.titleBn)}</h3><p>${esc(language==="en"?s.descEn:s.descBn)}</p></div>
+  </div>`).join("");
+ $("#dots").innerHTML=slides.map(()=>`<span class="dot"></span>`).join("");
+ goTo(cur,true);
+}
+function goTo(i,silent){
+ cur=(i+slides.length)%slides.length;
+ $("#track").style.transform=`translateX(-${cur*100}%)`;
+ document.querySelectorAll(".dot").forEach((d,k)=>d.classList.toggle("on",k===cur));
+ if(!silent)restart();
+}
+function restart(){clearInterval(timer);if(slides.length>1)timer=setInterval(()=>goTo(cur+1,true),5000)}
+$("#next").onclick=()=>goTo(cur+1);
+$("#prev").onclick=()=>goTo(cur-1);
+(function(){
+ const sl=$("#slider");let x0=null;
+ sl.addEventListener("touchstart",e=>{x0=e.touches[0].clientX;clearInterval(timer)},{passive:true});
+ sl.addEventListener("touchend",e=>{
+  if(x0!==null){const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)goTo(cur+(dx<0?1:-1));else restart()}
+  x0=null;
+ });
+})();
+
+function renderProjects(){
+ $("#projectGrid").innerHTML=projects.map(p=>`
+  <button type="button" class="pcard" onclick="openProjectModal(${p.id})">
+   <span class="ic" aria-hidden="true">${p.icon}</span>
+   <h3>${esc(language==="en"?p.titleEn:p.titleBn)}</h3>
+   <small>${esc(t("tap"))}</small>
+  </button>`).join("");
+}
+function ownerCard(m){
+ return `<button type="button" class="ocard" onclick="openPerson('owner',${m.id})">
+  <div class="ph"><div class="circle"><img src="${esc(m.image)}" alt="${esc(m.name)}" data-letter="${esc(m.name.charAt(0))}"></div></div>
+  <span class="role">${esc(language==="en"?m.roleEn:m.roleBn)}</span>
+  <h3>${esc(m.name)}</h3>
+  <span class="view">${esc(t("view"))}</span>
+ </button>`;
+}
+function vipCard(m){
+ return `<button type="button" class="mcard" onclick="openPerson('vip',${m.id})">
+  <div class="art"><img src="${esc(m.image)}" alt="${esc(m.name)}" data-letter="${esc(m.name.charAt(0))}"></div>
+  <p class="role">${esc(language==="en"?m.roleEn:m.roleBn)}</p>
+  <h3>${esc(m.name)}</h3>
+  <span class="view">${esc(t("view"))}</span>
+ </button>`;
+}
+function renderMembers(){
+ $("#ownerGrid").innerHTML=owners.map(ownerCard).join("");
+ $("#vipGrid").innerHTML=vips.map(vipCard).join("");
+ $("#vipBox").classList.toggle("hidden",vips.length===0);
+}
+function applyLanguage(){
+ document.body.classList.toggle("bn",language==="bn");
+ document.documentElement.lang=language;
+ document.querySelectorAll("[data-i]").forEach(el=>{const v=translations[language][el.dataset.i];if(v!==undefined)el.textContent=v});
+ $("#langToggle").textContent=language==="en"?"বাংলা":"English";
+ renderProjects();renderMembers();renderSlides();restart();
+}
+$("#langToggle").addEventListener("click",()=>{language=language==="en"?"bn":"en";applyLanguage()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){closePerson();closeProjectModal()}});
+applyLanguage();
+</script>
+</body>
+</html>
